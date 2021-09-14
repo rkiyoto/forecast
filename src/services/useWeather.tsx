@@ -4,13 +4,14 @@ import { AxiosResponse } from "axios";
 
 const useWeather = () => {
   const [weather, setWeather] = useState();
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const getWeatherByCityName = async (name: string) => {
     try {
       const { data }: AxiosResponse = await APIClient.get("/weather", {
         params: {
           q: name,
-          appid: "71f2246f77fe18df229a7a1a08365b5e",
+          appid: API_KEY,
           cnt: 3,
         },
       });
@@ -27,7 +28,7 @@ const useWeather = () => {
         params: {
           lat,
           lon,
-          appid: "71f2246f77fe18df229a7a1a08365b5e",
+          appid: API_KEY,
         },
       });
       console.log(

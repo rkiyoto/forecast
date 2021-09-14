@@ -3,7 +3,7 @@ import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 class APIClient {
   private axios: AxiosInstance;
 
-  private baseURL = "http://api.openweathermap.org/data/2.5";
+  private baseURL = process.env.REACT_APP_API_URL;
 
   constructor() {
     this.axios = axios.create({

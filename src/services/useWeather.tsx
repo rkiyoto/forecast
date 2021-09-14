@@ -1,9 +1,11 @@
 import { useState } from "react";
 import APIClient from "./APIClient";
 import { AxiosResponse } from "axios";
+import { WeatherResponse, ForecastResponse } from "../types";
 
 const useWeather = () => {
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState<WeatherResponse>();
+  const [forecast, setForecast] = useState<ForecastResponse>();
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   const getWeatherByCityName = async (name: string) => {
@@ -12,13 +14,14 @@ const useWeather = () => {
         params: {
           q: name,
           appid: API_KEY,
-          cnt: 3,
+          units: "metric",
+          lang: "pt_br",
         },
       });
       setWeather(data);
     } catch (e) {
       console.error("Error: ", e);
-      throw new Error(e as string);
+      // throw new Error(e as string);
     }
   };
 
@@ -29,18 +32,18 @@ const useWeather = () => {
           lat,
           lon,
           appid: API_KEY,
+          units: "metric",
+          lang: "pt_br",
         },
       });
-      console.log(
-        "🚀 ~ file: useWeather.tsx ~ line 33 ~ getForecast ~ data",
-        data
-      );
+      setForecast(data);
     } catch (e) {
-      throw new Error(e as string);
+      console.error("Error: ", e);
+      // throw new Error(e as string);
     }
   };
 
-  return { weather, getWeatherByCityName, getForecast };
+  return { weather, getWeatherByCityName, getForecast, forecast };
 };
 
 export default useWeather;

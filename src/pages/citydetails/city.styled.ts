@@ -70,13 +70,16 @@ const ForecastCard = styled.div`
   border-radius: 6px;
   background-color: white;
   cursor: default;
+  transition: all 0.1s;
 
   p {
     text-transform: capitalize;
   }
 
   :hover {
+    transform: scale(1.1);
     background-color: lightskyblue;
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 35, 0.5);
   }
 `;
 
@@ -87,7 +90,7 @@ const WeatherIcon = styled.img`
   transition: transform 0.2s;
 
   ${ForecastCard}:hover & {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 `;
 

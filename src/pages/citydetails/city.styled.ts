@@ -22,7 +22,7 @@ const BackButton = styled.button`
   transition: all 0.2s;
 
   border-width: 0;
-  border-radius: 6px 0 0 0;
+  border-radius: 4px;
   padding: 16px;
   background-color: transparent;
 
@@ -31,9 +31,18 @@ const BackButton = styled.button`
   }
 `;
 
+const HeadingContainer = styled.div`
+  display: flex;
+  flex: 1;
+  padding: 16px;
+  align-items: center;
+  flex-direction: row;
+`;
+
 const Heading = styled.h1`
   margin-top: 48px;
   color: white;
+  width: 100%;
 `;
 
 const WeatherView = styled.div`
@@ -134,6 +143,7 @@ const TempText = styled.p<TempProps>`
 export {
   Container,
   BackButton,
+  HeadingContainer,
   Heading,
   WeatherView,
   WeatherSection,

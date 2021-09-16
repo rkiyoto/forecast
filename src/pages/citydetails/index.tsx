@@ -28,17 +28,20 @@ const CityForecast = () => {
 
   if (error) {
     return (
-      <div>
+      <S.HeadingContainer>
+        <S.BackButton onClick={() => window.history.back()}>
+          Voltar
+        </S.BackButton>
         <S.Heading>Cidade não encontrada. :(</S.Heading>
-      </div>
+      </S.HeadingContainer>
     );
   }
 
   if (!weather || !forecast)
     return (
-      <div>
+      <S.HeadingContainer>
         <S.Heading>Carregando...</S.Heading>
-      </div>
+      </S.HeadingContainer>
     );
 
   return (

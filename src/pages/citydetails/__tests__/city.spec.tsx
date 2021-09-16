@@ -49,4 +49,24 @@ describe("<CityForecast />", () => {
 
     expect(screen.getAllByTestId(/forecast-card/i)).toHaveLength(8);
   });
+
+  it("must show error message on city not found", async () => {
+    server.use(
+      rest.get(
+        "https://api.openweathermap.org/data/2.5/weather",
+        (req, res, ctx) => {
+          return res(ctx.status(404));
+        }
+      )
+    );
+    render(<CityForecast />);
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole("heading", {
+          name: /cidade não encontrada\. :\(/i,
+        })
+      ).toBeInTheDocument();
+    });
+  });
 });

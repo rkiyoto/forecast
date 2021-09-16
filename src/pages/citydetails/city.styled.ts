@@ -31,7 +31,7 @@ const BackButton = styled.button`
   }
 `;
 
-const Loading = styled.h1`
+const Heading = styled.h1`
   margin-top: 48px;
   color: white;
 `;
@@ -134,7 +134,7 @@ const TempText = styled.p<TempProps>`
 export {
   Container,
   BackButton,
-  Loading,
+  Heading,
   WeatherView,
   WeatherSection,
   ForecastView,

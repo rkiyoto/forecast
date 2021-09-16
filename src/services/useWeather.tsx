@@ -20,9 +20,11 @@ const getErrorMessage = (errorCode: number, city?: string) => {
 const useWeather = () => {
   const [weather, setWeather] = useState<WeatherResponse>();
   const [forecast, setForecast] = useState<ForecastResponse>();
+  const [error, setError] = useState(false);
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   const getWeatherByCityName = (name: string) => {
+    setError(false);
     APIClient.get("/weather", {
       params: {
         q: name,
@@ -46,10 +48,12 @@ const useWeather = () => {
             fontWeight: 600,
           },
         });
+        setError(true);
       });
   };
 
   const getForecast = async (lat: number, lon: number) => {
+    setError(false);
     APIClient.get("/onecall", {
       params: {
         lat,
@@ -63,6 +67,7 @@ const useWeather = () => {
         setForecast(response.data);
       })
       .catch((error) => {
+        setError(true);
         toast.error(getErrorMessage(error.response.status), {
           position: "bottom-center",
           icon: "⚠️",
@@ -77,7 +82,7 @@ const useWeather = () => {
       });
   };
 
-  return { weather, getWeatherByCityName, getForecast, forecast };
+  return { weather, getWeatherByCityName, getForecast, forecast, error };
 };
 
 export default useWeather;

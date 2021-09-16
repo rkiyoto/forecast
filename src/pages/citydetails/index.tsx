@@ -13,7 +13,8 @@ interface Params {
 
 const CityForecast = () => {
   const { cityName }: Params = useParams();
-  const { weather, getWeatherByCityName, getForecast, forecast } = useWeather();
+  const { weather, getWeatherByCityName, getForecast, forecast, error } =
+    useWeather();
 
   useEffect(() => {
     getWeatherByCityName(cityName);
@@ -25,10 +26,18 @@ const CityForecast = () => {
     }
   }, [weather]);
 
+  if (error) {
+    return (
+      <div>
+        <S.Heading>Cidade não encontrada. :(</S.Heading>
+      </div>
+    );
+  }
+
   if (!weather || !forecast)
     return (
       <div>
-        <S.Loading>Carregando...</S.Loading>
+        <S.Heading>Carregando...</S.Heading>
       </div>
     );
 

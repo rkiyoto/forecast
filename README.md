@@ -2,7 +2,7 @@
 
 This project ships a 2 page forecast application
 
-## Runnning
+## Running
 
 ```
   $ yarn

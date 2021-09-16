@@ -33,6 +33,7 @@ const Home = () => {
 
   return (
     <S.HomeContainer>
+      <S.Title>Forecast</S.Title>
       <S.Section data-testid="content-section">
         <form onSubmit={handleSubmit}>
           <S.SearchInput placeholder="ex: São Paulo" id="city" name="city" />

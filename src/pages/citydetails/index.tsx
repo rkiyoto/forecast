@@ -25,17 +25,16 @@ const CityForecast = () => {
     }
   }, [weather]);
 
-  console.log("weather", weather);
-
   if (!weather || !forecast)
     return (
       <div>
-        <h1>Carregando...</h1>
+        <S.Loading>Carregando...</S.Loading>
       </div>
     );
 
   return (
     <S.Container>
+      <S.BackButton onClick={() => window.history.back()}>Voltar</S.BackButton>
       <S.WeatherView>
         <S.WeatherSection>
           <h1>{weather.name}</h1>
@@ -43,6 +42,7 @@ const CityForecast = () => {
         </S.WeatherSection>
         <S.WeatherSection>
           <S.WeatherIcon
+            data-testid="weather-icon"
             src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
           />
           <h2>{weather.weather[0].description}</h2>

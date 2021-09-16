@@ -9,12 +9,10 @@ interface CardProps {
 
 const Card = ({ min, max, dt, icon }: CardProps) => {
   const day = new Date(dt * 1000);
-  console.log("🚀 ~ file: card.tsx ~ line 12 ~ Card ~ day", day);
   return (
-    <ForecastCard>
-      <p>{`${day.toLocaleDateString("pt-BR", {
+    <ForecastCard data-testid="forecast-card">
+      <p data-testid="card-day">{`${day.toLocaleDateString("pt-BR", {
         weekday: "short",
-        // year: "numeric",
         month: "numeric",
         day: "numeric",
       })}`}</p>

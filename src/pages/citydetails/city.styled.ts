@@ -7,8 +7,33 @@ interface TempProps {
 const Container = styled.div`
   display: flex;
   flex: 1;
-  padding: 48px;
+  padding: 32px 48px;
   flex-direction: column;
+`;
+
+const BackButton = styled.button`
+  position: fixed;
+  top: 50;
+  left: 50;
+  z-index: 10;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  transition: all 0.2s;
+
+  border-width: 0;
+  border-radius: 6px 0 0 0;
+  padding: 16px;
+  background-color: transparent;
+
+  :hover {
+    background-color: lightgray;
+  }
+`;
+
+const Loading = styled.h1`
+  margin-top: 48px;
+  color: white;
 `;
 
 const WeatherView = styled.div`
@@ -26,12 +51,12 @@ const WeatherView = styled.div`
   -webkit-backdrop-filter: blur(8.5px);
 
   h1 {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 600;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 400;
     text-transform: capitalize;
   }
@@ -51,7 +76,7 @@ const ForecastView = styled.div`
   flex-wrap: nowrap;
   padding: 32px;
   overflow-x: auto;
-  margin-top: calc(10 * 8px);
+  margin-top: 48px;
   border-radius: 6px;
 
   background: rgba(255, 255, 255, 0.25);
@@ -108,6 +133,8 @@ const TempText = styled.p<TempProps>`
 
 export {
   Container,
+  BackButton,
+  Loading,
   WeatherView,
   WeatherSection,
   ForecastView,

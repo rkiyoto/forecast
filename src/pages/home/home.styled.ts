@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 const HomeContainer = styled.div`
+  position: relative;
   display: flex;
   flex: 1;
   height: 100%;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+`;
+
+const Title = styled.h1`
+  font-size: 64px;
+  color: white;
+  font-weight: 200;
 `;
 
 const SearchInput = styled.input`
@@ -44,6 +50,7 @@ const Section = styled.div`
   width: 500px;
   height: 600px;
   padding: 32px;
+  margin-bottom: 48px;
   border-radius: 6px;
   color: white;
 
@@ -87,9 +94,19 @@ const CityRow = styled.div`
   text-transform: capitalize;
   transition: all 0.1s;
 
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-width: 0;
+    border-radius: 2px;
+  }
+
   :hover {
     box-shadow: 0 4px 16px 0 rgba(31, 38, 35, 0.1);
-    background-color: #5f6368;
+    background-color: #aaa;
   }
 `;
 
@@ -102,4 +119,5 @@ export {
   ListView,
   CityRow,
   SearchButton,
+  Title,
 };

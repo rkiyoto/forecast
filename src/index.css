@@ -6,7 +6,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: url("./sky.jpg");
+  /* background: rgb(90, 235, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(90, 235, 255, 1) 0%,
+    rgba(2, 24, 255, 1) 100%
+  ); */
+  background: rgb(0, 232, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 232, 255, 1) 0%,
+    rgba(180, 2, 255, 1) 100%
+  );
 }
 
 code {
